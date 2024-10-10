@@ -37,14 +37,14 @@
 
 // Console.WriteLine($"Konvertatsiya qilingan summa: {somdasumma} so'm");
 
-using System;
+// using System;
 
-Console.Write("Tug'ilgan yilingizni kirting: ");
-int tugilganyil = Convert.ToInt32(Console.ReadLine());
+// Console.Write("Tug'ilgan yilingizni kirting: ");
+// int tugilganyil = Convert.ToInt32(Console.ReadLine());
 
-int yoshkunlarda =( 2024 - tugilganyil) * 365;
+// int yoshkunlarda =( 2024 - tugilganyil) * 365;
 
-Console.WriteLine($"YYoshingiz kunlarda: {yoshkunlarda} kun");
+// Console.WriteLine($"YYoshingiz kunlarda: {yoshkunlarda} kun");
 
 
 
