@@ -4,82 +4,90 @@
 // {
 //     static void Main()
 //     {
-//         Console.Write("Daqiqalar sonini kiriting: ");
-//         int daqiqa = Convert.ToInt32(Console.ReadLine()); // Foydalanuvchi daqiqani kiritadi
+//         Console.Write("Satrni kiriting: ");
+//         string satr = Console.ReadLine(); // Foydalanuvchi satrni kiritadi
+//         string teskari = "";
 
-//         int soat = daqiqa / 60; // Soatlar soni
-//         int qoldiqDaqiqa = daqiqa % 60; // Qolgan daqiqalar
-
-//         Console.WriteLine("Vaqt: " + soat + ":" + qoldiqDaqiqa); // Soat:daqiqa formatida natija chiqariladi
-//     }
-// }
-
-// using System;
-
-// class Program
-// {
-//     static void Main()
-//     {
-//         Console.Write("Yoshingizni kiriting: ");
-//         int yosh = Convert.ToInt32(Console.ReadLine()); // Foydalanuvchidan yoshni olamiz
-
-//         string toifa = ""; // Yosh toifasi uchun o'zgaruvchi
-
-//         if (yosh >= 0 && yosh <= 12) toifa = "Bola";
-//         if (yosh >= 13 && yosh <= 19) toifa = "O'smir";
-//         if (yosh >= 20 && yosh <= 59) toifa = "Katta";
-//         if (yosh >= 60) toifa = "Katta yoshli";
-
-//         Console.WriteLine("Yosh toifasi: " + toifa); // Toifani chiqaramiz
-//     }
-// }
-
-// using System;
-
-// class Program
-// {
-//     static void Main()
-//     {
-//         Console.Write("Birinchi bahoni kiriting: ");
-//         int baho1 = Convert.ToInt32(Console.ReadLine());
-
-//         Console.Write("Ikkinchi bahoni kiriting: ");
-//         int baho2 = Convert.ToInt32(Console.ReadLine());
-
-//         Console.Write("Uchinchi bahoni kiriting: ");
-//         int baho3 = Convert.ToInt32(Console.ReadLine());
-
-//         double ortacha = (baho1 + baho2 + baho3) / 3.0; // Uch bahoning o'rtacha qiymati hisoblanadi
-
-//         string natija = ortacha >= 80 ? "A'lo" : ortacha >= 60 ? "Yaxshi" : ortacha >= 40 ? "Qoniqarli" : "Qoniqarsiz";
-//         Console.WriteLine("Natija: " + natija); // O'rtacha baho asosida natijani chiqaradi
-//     }
-// }
-
-// using System;
-
-// class Program
-// {
-//     static void Main()
-//     {
-//         Random tasodifiy = new Random(); 
-//         int sirliSon = tasodifiy.Next(1, 101); // 1 dan 100 gacha tasodifiy son yaratish
-
-//         Console.WriteLine("1 dan 100 gacha bo'lgan sonni topishga harakat qiling!");
-
-//         bool topildi = false;
-//         int urinish = 0;
-//         while (!topildi)
+//         for (int i = satr.Length - 1; i >= 0; i--)
 //         {
-//             Console.Write("Taxminingizni kiriting: ");
-//             int foydalanuvchiSon = Convert.ToInt32(Console.ReadLine());
-//             urinish++;
+//             teskari += satr[i]; // Satrni teskari o'qib teskari o'zgaruvchiga qo'shamiz
+//         }
 
-//             string natija = foydalanuvchiSon == sirliSon ? "To'g'ri! Siz " + urinish + " urinishda topdingiz." : 
-//                            foydalanuvchiSon > sirliSon ? "Kichikroq son kiriting." : "Kattaroq son kiriting.";
-//             Console.WriteLine(natija);
+//         if (satr == teskari)
+//         {
+//             Console.WriteLine("Palindrom"); // Agar bir xil bo'lsa, palindrom
+//         }
+//         else
+//         {
+//             Console.WriteLine("Palindrom emas"); // Aks holda, palindrom emas
+//         }
+//     }
+// }
 
-//             topildi = foydalanuvchiSon == sirliSon; // Agar foydalanuvchi to'g'ri topgan bo'lsa, while loop tugaydi
+// using System;
+
+// class Program
+// {
+//     static void Main()
+//     {
+//         Console.Write("Selsiyusdagi temperaturani kiriting: ");
+//         double selsiy = Convert.ToDouble(Console.ReadLine()); // Foydalanuvchi Selsiyusni kiritadi
+
+//         double fahrenheit = (selsiy * 9 / 5) + 32; // Fahrenheitga aylantirish
+//         double kelvin = selsiy + 273.15; // Kelvin ga aylantirish
+
+//         Console.WriteLine("Selsiyus: " + selsiy);
+//         Console.WriteLine("Fahrenheit: " + fahrenheit);
+//         Console.WriteLine("Kelvin: " + kelvin);
+//     }
+// }
+
+// using System;
+// using System.Linq;
+
+// class Program
+// {
+//     static void Main()
+//     {
+//         Console.Write("Sonlarni kiriting (vergul bilan ajrating): ");
+//         string input = Console.ReadLine(); // Foydalanuvchi sonlarni kiritadi
+//         int[] sonlar = input.Split(',').Select(int.Parse).ToArray(); // Kiritilgan sonlar massivga aylanadi
+
+//         Array.Sort(sonlar); // Tartiblangan qator
+//         Console.WriteLine("Tartiblangan qator: " + string.Join(", ", sonlar));
+
+//         Array.Reverse(sonlar); // Teskari tartiblangan qator
+//         Console.WriteLine("Teskari tartiblangan qator: " + string.Join(", ", sonlar));
+//     }
+// }
+
+// using System;
+// using System.Collections.Generic;
+
+// class Program
+// {
+//     static void Main()
+//     {
+//         Console.Write("Matn kiriting: ");
+//         string matn = Console.ReadLine(); // Foydalanuvchi matnni kiritadi
+
+//         Dictionary<char, int> simvolSanash = new Dictionary<char, int>();
+
+//         foreach (char simvol in matn)
+//         {
+//             if (simvolSanash.ContainsKey(simvol))
+//             {
+//                 simvolSanash[simvol]++; // Agar simvol mavjud bo'lsa, sanagani oshiramiz
+//             }
+//             else
+//             {
+//                 simvolSanash[simvol] = 1; // Agar yangi simvol bo'lsa, 1 ga tenglashamiz
+//             }
+//         }
+
+//         foreach (var element in simvolSanash)
+//         {
+//             Console.WriteLine("'" + element.Key + "': " + element.Value + " marta");
 //         }
 //     }
 // }
